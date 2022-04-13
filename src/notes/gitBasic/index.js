@@ -1,5 +1,5 @@
 const path = require('path')
-const fs = require('fs')
+const fs = require('fs');
 const md = require('markdown-it')()
 
 const gitBasic = (req, res, next) => {
@@ -8,10 +8,12 @@ const gitBasic = (req, res, next) => {
     if (err) return;
     else {
       let result = md.render(data);
-      res.end(result)
+      // res.end(result)
+      res.body.result = result
     }
   })
 }
+
 
 module.exports = {
   gitBasic

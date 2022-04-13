@@ -1,4 +1,6 @@
 const app = require('./app');
+require('./app/database')
+// 全局变量
 const config = require('./app/config')
 
 

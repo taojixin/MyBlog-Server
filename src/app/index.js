@@ -1,8 +1,9 @@
 const express = require('express')
 const parser = require('body-parser')
 
-const homeRouter = require('../router/home')
-const notesRouter = require('../router/notes')
+// 导入路由相关信息
+const homeRouter = require('../router/home.router')
+const notesRouter = require('../router/notes.router')
 
 
 const app = express();
