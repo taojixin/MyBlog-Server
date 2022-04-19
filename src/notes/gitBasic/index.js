@@ -8,8 +8,7 @@ const gitBasic = (req, res, next) => {
     if (err) return;
     else {
       let result = md.render(data);
-      // res.end(result)
-      res.body.result = result
+      res.end(result)
     }
   })
 }
