@@ -11,6 +11,7 @@ const app = express();
 
 // 解析前端传过来的数据
 app.use(parser.json())
+app.use(parser.urlencoded({extended:true}))
 
 // 首页的数据请求
 app.use('/api/home', homeRouter);

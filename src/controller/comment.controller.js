@@ -19,8 +19,17 @@ class CommentController {
     let ifLike = req.body.ifTrue
     let commentId = req.body.commentId
     const result = service.giveLike(commentId, ifLike)
+    console.log(ifLike, commentId);
+
     res.end(`${ifLike ? '点赞成功' : '取消点赞'}`)
 
+  }
+  // 获取全部评论
+  async getAllComments(req, res, next) {
+    // 注意这里返回的是一个promise，所以使用async与await
+    const result = await service.getAllComments()
+    // 以json格式返回查询信息
+    res.json(result)
   }
 }
 

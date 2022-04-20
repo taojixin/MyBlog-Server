@@ -7,7 +7,9 @@ const connections = mysql.createPool({
   port: 3306,
   database: config.MYSQL_DATABASE,
   user: config.MYSQL_USER,
-  password: config.MYSQL_PASSWORD
+  password: config.MYSQL_PASSWORD,
+  // 用于解决返回数组的格式不对问题
+  timezone: "SYSTEM"
 })
 
 connections.getConnection((err, conn) => {

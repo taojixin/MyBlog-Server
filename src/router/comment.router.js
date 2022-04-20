@@ -3,13 +3,16 @@ const commentRouter = express.Router()
 
 const {
   create,
-  giveLike
+  giveLike,
+  getAllComments
 } = require('../controller/comment.controller')
 
 // 发表评论
 commentRouter.post('/create', create)
 // 点赞
-commentRouter.get('/givelike', giveLike)
+commentRouter.post('/givelike', giveLike)
+// 获取全部评论信息
+commentRouter.get('/getcomments', getAllComments)
 
 
 module.exports = commentRouter;
