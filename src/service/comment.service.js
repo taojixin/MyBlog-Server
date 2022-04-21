@@ -42,9 +42,9 @@ class CommentService {
     }
 
   }
-  // 获取全部评论信息
+  // 获取最新的10条评论信息
   async getAllComments() {
-    const statement = `SELECT * FROM comments ORDER BY id DESC;`
+    const statement = `SELECT * FROM comments ORDER BY id DESC LIMIT 10;`
     // result 的值为一个数组，这个数组中又有很多个数组，第一个数组为查询的表的值，每个值为一个对象
     const result = await connections.execute(statement)
     const comments = result[0]
