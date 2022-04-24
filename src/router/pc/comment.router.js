@@ -5,7 +5,7 @@ const {
   create,
   giveLike,
   getAllComments
-} = require('../controller/comment.controller')
+} = require('../../controller/comment.controller')
 
 // 发表评论
 commentRouter.post('/create', create)

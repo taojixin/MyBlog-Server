@@ -18,6 +18,7 @@ class CommentService {
     //   },
     //   undefined
     // ]
+    console.log(result);
     return result
   }
   // 点赞
