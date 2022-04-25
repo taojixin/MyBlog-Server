@@ -1,6 +1,12 @@
 const service = require('../service/study.service')
 const extractSort = require('../utils/extractSort')
 class StudyController {
+  // 获取所有笔记接口
+  async getAllNote(req, res, next) {
+    const result = await service.getAllNote()
+    console.log(result);
+    res.json(result)
+  }
   // 获取笔记分类列表
   async getSortList(req, res, next) {
     const result = await service.getSortList()
