@@ -20,6 +20,19 @@ class StudyService {
     const result = await connections.execute(statement,[noteMessage.title,noteMessage.describe,noteMessage.content,noteMessage.createtime,noteMessage.sort])
     return result
   }
+  // 删除笔记
+  async deleteNote(id) {
+    const statement = `DELETE FROM notes_test WHERE id=?;`
+    const result = await connections.execute(statement, [id])
+    return result
+  }
+  // 根据条数和页数查询笔记
+  async getSomeNote(num, page) {
+    const fromNum = (page - 1) * num
+    const statement = `SELECT id,note_title,note_describe,note_createtime,note_sort FROM notes_test LIMIT ?,?;`
+    const result = await connections.execute(statement, [fromNum+'', num+''])
+    return result[0]
+  }
 }
 
 module.exports = new StudyService();
