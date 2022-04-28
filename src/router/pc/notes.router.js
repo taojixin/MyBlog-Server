@@ -8,7 +8,8 @@ const { vueBasic } = require('../../notes/vueBasic')
 const {
   addNote,
   getSomeNote,
-  getNoteContent
+  getNoteContent,
+  getAllNote
 } = require('../../controller/notes.controller')
 // admin端的（懒得再写一遍写用一下）
 const {
@@ -28,5 +29,7 @@ notesRouter.get('/getsortlist', getSortList)
 notesRouter.post('/getsomenote', getSomeNote)
 // 根据id获取笔记内容
 notesRouter.post('/getnotecontent', getNoteContent)
+// 获取笔记（所有或者n条）接口(不含内容)
+notesRouter.post('/getallnote', getAllNote)
 
 module.exports = notesRouter;

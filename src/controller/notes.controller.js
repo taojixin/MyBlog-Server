@@ -30,7 +30,7 @@ class NotesController {
     })
   }
   // 根据id获取笔记内容
-  async getNoteContent (req, res, next) {
+  async getNoteContent(req, res, next) {
     const noteId = req.body.noteId
     const result = await service.getNoteContent(noteId)
     const data = Conver(result.note_content)
@@ -40,6 +40,20 @@ class NotesController {
       },
       meta: {
         message: '查询成功',
+        status: 200
+      }
+    })
+  }
+  // 获取笔记（所有或者n条）接口(不含内容)
+  async getAllNote(req, res, next) {
+    const num = req.body.number
+    const result = await service.getAllNote(num)
+    res.json({
+      data: {
+        content: result
+      },
+      meta: {
+        message: '获取成功！',
         status: 200
       }
     })
