@@ -33,6 +33,10 @@ class StudyService {
     const result = await connections.execute(statement, [fromNum+'', num+''])
     return result[0]
   }
+  // 修改笔记（修改分类，表述等）
+  modifyNote(id) {
+
+  }
 }
 
 module.exports = new StudyService();

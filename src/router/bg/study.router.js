@@ -9,7 +9,8 @@ const {
   uploadNote,
   getAllNote,
   delteNote,
-  getSomeNote
+  getSomeNote,
+  modifyNote
 } = require('../../controller/study.controller')
 
 // 获取所有笔记接口(不含笔记内容)
@@ -22,5 +23,7 @@ studyRouter.post('/uploadnote', verifyAuth, uploadNote)
 studyRouter.delete('/deletenote', verifyAuth, delteNote)
 // 按页查询笔记
 studyRouter.post('/getsomenote', verifyAuth, getSomeNote)
+// 修改笔记（修改分类，表述等）
+studyRouter.post('/modifynote', verifyAuth, modifyNote)
 
 module.exports = studyRouter;

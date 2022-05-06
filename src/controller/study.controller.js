@@ -72,6 +72,13 @@ class StudyController {
     res.json(result)
 
   }
+  // 修改笔记（修改分类，表述等）
+  async modifyNote(req, res, next) {
+    // 获取需要修改的笔记的id
+    const noteId = req.body.note_id
+    const result = await service.modifyNote(noteId)
+    res.json(result)
+  }
 
 }
 
