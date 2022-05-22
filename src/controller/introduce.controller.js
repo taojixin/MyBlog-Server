@@ -1,4 +1,4 @@
-const {getIntroduce, updateData} = require('../service/introduce.service')
+const {getIntroduce, updateData,updataAll} = require('../service/introduce.service')
 class IntroduceController {
   // 获取个人介绍接口
   async getIntroduce(req, res, next) {
@@ -10,8 +10,17 @@ class IntroduceController {
   async updateIntroduce(req, res, next) {
     const queryKey = req.body.queryKey
     const data = req.body.updateData
-    const result = await updateData(queryKey, data)
+    await updateData(queryKey, data)
     res.json('修改成功！')
+  }
+  // 修改所有个人信息接口
+  updateAll(req, res, next) {
+    const personalForm = req.body.personalForm
+    updataAll(personalForm).then(res => {
+      res.end("修改成功")
+    }).catch(err => {
+      res.end("修改失败")
+    })
   }
 }
 
