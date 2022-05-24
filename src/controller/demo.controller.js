@@ -19,6 +19,12 @@ class DemoController {
     service.deleteDemo(demoId)
     res.json("删除成功！")
   }
+  // 修改demo
+  modifyDemo(req, res, next) {
+    const {demoId,demo_describe,demo_knowledge,demo_code} = req.body
+    service.modifyDemo(demoId,demo_describe,demo_knowledge,demo_code)
+    res.json("修改成功！")
+  }
 }
 
 

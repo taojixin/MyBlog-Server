@@ -26,6 +26,12 @@ class DemoService {
     const data = await connections.execute(statement, [demoId])
     return data
   }
+  // 修改demo
+  async modifyDemo(demoId,demo_describe,demo_knowledge,demo_code) {
+    const statement = `UPDATE demo SET demo_describe=?,demo_knowkedge=?,demo_code=? WHERE id=?;`
+    const data = await connections.execute(statement, [demo_describe,demo_knowledge,demo_code,demoId])
+    return data
+  }
 }
 
 module.exports = new DemoService();

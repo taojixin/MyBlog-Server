@@ -6,7 +6,7 @@ class IntroduceController {
     const data = await getIntroduce(queryKey)
     res.json(data)
   }
-  // 修改个人介绍接口
+  // 修改个人信息接口
   async updateIntroduce(req, res, next) {
     const queryKey = req.body.queryKey
     const data = req.body.updateData

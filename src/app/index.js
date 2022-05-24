@@ -12,6 +12,7 @@ const loginRouter = require('../router/bg/login.router')
 const studyRouter = require('../router/bg/study.router')
 const demoRouter = require('../router/bg/demo.router')
 const introduceRouter = require('../router/bg/introduce.router')
+const introduceRouterPC = require('../router/pc/introduce.router')
 
 
 const app = express();
@@ -28,7 +29,7 @@ app.use('/api/comment', commentRouter)
 // 简历接口
 app.use('/api/resume', resumeRouter)
 // 自我介绍接口
-app.use('/api/introduce', introduceRouter)
+app.use('/api/introduce', introduceRouterPC)
 
 // 后台管理系统
 app.use('/admin/login', loginRouter)
