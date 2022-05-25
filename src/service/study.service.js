@@ -34,8 +34,16 @@ class StudyService {
     return result[0]
   }
   // 修改笔记（修改分类，表述等）
-  modifyNote(id) {
-
+  async modifyNote(id, note_title, note_describe, note_content, note_sort) {
+    const statement = `UPDATE notes_test SET note_title=?,note_describe=?,note_content=?,note_sort=? WHERE id=?;`
+    const data = await connections.execute(statement, [ note_title, note_describe, note_content, note_sort,id])
+    return data[0]
+  }
+  // 根据id获取某个笔记信息
+  async getOneNote(id) {
+    const statement = `SELECT * FROM notes_test WHERE id=?;`
+    const data = await connections.execute(statement, [id+''])
+    return data[0][0]
   }
 }
 

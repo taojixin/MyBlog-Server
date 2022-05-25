@@ -1,4 +1,5 @@
 const service = require('../service/study.service')
+const Conver = require('../utils/convert')
 // 提取分类保存到数组中
 const extractSort = require('../utils/extractSort')
 class StudyController {
@@ -22,7 +23,7 @@ class StudyController {
     })
   }
   // 上传笔记接口
-  uploadNote(req, res,next) {
+  uploadNote(req, res, next) {
     const noteMessage = req.body
     const result = service.uploadNote(noteMessage)
     result.then(resolve => {
@@ -55,7 +56,7 @@ class StudyController {
       })
     }).catch(error => {
       res.json({
-        meta:{
+        meta: {
           message: '删除失败',
           status: 500
         }
@@ -75,9 +76,18 @@ class StudyController {
   // 修改笔记（修改分类，表述等）
   async modifyNote(req, res, next) {
     // 获取需要修改的笔记的id
-    const noteId = req.body.note_id
-    const result = await service.modifyNote(noteId)
-    res.json(result)
+    const { id, note_title, note_describe, note_content, note_sort } = req.body
+    console.log(id);
+    await service.modifyNote(id, note_title, note_describe, note_content, note_sort)
+    res.json("修改成功！")
+  }
+  // 根据id获取某个笔记信息
+  async getOneNote(req, res, next) {
+    const noteId = req.body.noteId
+    console.log("djfls" + noteId);
+    const data = await service.getOneNote(noteId)
+    data.note_content = Conver(data.note_content)
+    res.json(data)
   }
 
 }

@@ -1,11 +1,18 @@
 const service = require('../service/demo.service')
-
+const Conver = require('../utils/convert')
+const md = require('markdown-it')()
 class DemoController {
   // 获取demo相关信息
   async getDemo(req, res,next) {
     const getId = req.body.getId
     const data = await service.getDemo(getId)
-    res.json(data)
+    // @ts-ignore
+    const newData = data.map((value) => {
+      const markdown = Conver(value.demo_code+'')
+      value.demo_code = markdown
+      return value
+    })
+    res.json(newData)
   }
   // 添加demo
   async addDemo(req, res, next) {

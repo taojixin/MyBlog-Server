@@ -9,7 +9,7 @@ class DemoService {
     } else {
       const statement = `SELECT * FROM demo WHERE id=?;`
       const data = await connections.execute(statement,[id+''])
-      return data[0][0]
+      return data[0]
     }
 
   }

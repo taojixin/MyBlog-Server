@@ -49,6 +49,23 @@ class CommentController {
       }
     })
   }
+  // 按页和数量获取留言
+  async getSomeComments(req, res, next) {
+    const {page,num} = req.body
+    const data = await service.getSomeComments(page,num)
+    res.json(data)
+  }
+  // 获取评论总数
+  async getCommentTotal(req, res, next) {
+    const data = await service.getCommentTotal()
+    res.json(data)
+  }
+  // 删除某条评论
+  delSomeComment(req, res ,next) {
+    const delId = req.body.delId
+    service.delSomeComment(delId)
+    res.json("删除成功！")
+  }
 }
 
 module.exports = new CommentController();

@@ -56,6 +56,25 @@ class CommentService {
     // }
     return comments
   }
+  // 根据页数和数量获取评论 admin
+  async getSomeComments(page,num) {
+    const newPage = (page-1)*num
+    const statement = `SELECT * FROM comments LIMIT ?,?;`
+    const data = await connections.execute(statement,[newPage+'', num+''])
+    return data[0]
+  }
+  // 获取评论总数
+  async getCommentTotal() {
+    const statement =  `SELECT COUNT(id) AS total FROM comments;`
+    const data = await connections.execute(statement)
+    return data[0]
+  }
+  // 删除某条评论
+  async delSomeComment(id) {
+    const statement = `DELETE FROM comments WHERE id=?;`
+    const data = await connections.execute(statement,[id])
+    return data
+  }
 }
 
 module.exports = new CommentService();

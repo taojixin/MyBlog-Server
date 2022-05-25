@@ -5,6 +5,7 @@ const parser = require('body-parser')
 const notesRouter = require('../router/pc/notes.router')
 const commentRouter = require('../router/pc/comment.router')
 const resumeRouter = require('../router/pc/resume.router')
+const introduceRouterPC = require('../router/pc/introduce.router')
 // const introduceRouter = require('../router/pc/introduce.router')
 
 // 导入后台管理系统接口路由相关信息
@@ -12,7 +13,7 @@ const loginRouter = require('../router/bg/login.router')
 const studyRouter = require('../router/bg/study.router')
 const demoRouter = require('../router/bg/demo.router')
 const introduceRouter = require('../router/bg/introduce.router')
-const introduceRouterPC = require('../router/pc/introduce.router')
+const commentRouterBG = require('../router/bg/comment.router')
 
 
 const app = express();
@@ -36,6 +37,7 @@ app.use('/admin/login', loginRouter)
 app.use('/admin', studyRouter)
 app.use('/admin', demoRouter)
 app.use('/admin', introduceRouter)
+app.use('/admin', commentRouterBG)
 
 
 
