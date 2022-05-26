@@ -6,6 +6,7 @@ const notesRouter = require('../router/pc/notes.router')
 const commentRouter = require('../router/pc/comment.router')
 const resumeRouter = require('../router/pc/resume.router')
 const introduceRouterPC = require('../router/pc/introduce.router')
+const demoRouterPC = require('../router/pc/demo.router')
 // const introduceRouter = require('../router/pc/introduce.router')
 
 // 导入后台管理系统接口路由相关信息
@@ -14,6 +15,7 @@ const studyRouter = require('../router/bg/study.router')
 const demoRouter = require('../router/bg/demo.router')
 const introduceRouter = require('../router/bg/introduce.router')
 const commentRouterBG = require('../router/bg/comment.router')
+const fileRouter = require('../router/bg/file.router')
 
 
 const app = express();
@@ -31,6 +33,8 @@ app.use('/api/comment', commentRouter)
 app.use('/api/resume', resumeRouter)
 // 自我介绍接口
 app.use('/api/introduce', introduceRouterPC)
+// demo接口
+app.use('/api/demo', demoRouterPC)
 
 // 后台管理系统
 app.use('/admin/login', loginRouter)
@@ -38,6 +42,8 @@ app.use('/admin', studyRouter)
 app.use('/admin', demoRouter)
 app.use('/admin', introduceRouter)
 app.use('/admin', commentRouterBG)
+// 文件上传
+app.use('/admin', fileRouter)
 
 
 
