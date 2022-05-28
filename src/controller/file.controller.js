@@ -14,7 +14,7 @@ class FileController {
       service.saveDemoImgInfo(filename, mimetype, size, demo_id).then(resolve => {
         res.json({
           state: 200,
-          message: "上传成功过！"
+          message: "上传成功！"
         })
       }, error => {
         res.end("上传失败！")

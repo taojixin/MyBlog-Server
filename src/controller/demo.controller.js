@@ -28,8 +28,9 @@ class DemoController {
   }
   // 修改demo
   modifyDemo(req, res, next) {
-    const {demoId,demo_describe,demo_knowledge,demo_code} = req.body
-    service.modifyDemo(demoId,demo_describe,demo_knowledge,demo_code)
+    const {demoId,demo_describe,demo_knowledge,demo_code,path} = req.body
+    console.log(req.body);
+    service.modifyDemo(demoId,demo_describe,demo_knowledge,demo_code,path)
     res.json("修改成功！")
   }
 }
